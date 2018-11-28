@@ -1,2 +1,11 @@
 <h2><%= current_user.first_name %>'s TROLLO</h2>
 <hr />
+
+<ul>
+  <% @boards.each do |b| %>
+    <li>
+        <%= link_to b.name, list_path(:id)%>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Create New Board", new_board_path, class: "ui primary button" %> 
