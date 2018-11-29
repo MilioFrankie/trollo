@@ -1,2 +1,8 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<h1>Creat A Task</h1>
+<%= form_with(model: [@list, @task], local: true, class: "ui form") do |f| %>
+<div class = "field">
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true, placeholder: "Name of task" %>
+</div>
+<%= f.submit %>
+<% end %>

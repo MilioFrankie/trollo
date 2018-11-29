@@ -1,10 +1,12 @@
 <h2><%= current_user.first_name %>'s TROLLO</h2>
 <hr />
 
+<h3> YOUR BOARDS </H3>
+
 <ul>
   <% @boards.each do |b| %>
     <li>
-        <%= link_to b.name, list_path(:id)%>
+        <%= link_to b.name, board_lists_path(b)%>
     </li>
   <% end %>
 </ul>

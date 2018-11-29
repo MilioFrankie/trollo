@@ -1,2 +1,18 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<h1><%= @board.name %></h1>
+<hr />
+<%= link_to "Create List", new_board_list_path(@board), class: "ui green button"%>
+<br />
+<br />
+    <% @lists.each do |l| %>
+      <div class = "ui cards">
+        <div class = "card">
+          <div class = "content">
+            <div class = "header"><%=l.name %></div>
+            <div class = "description">
+            <p>ADD each do for task in here</p>
+            </div>
+              <%= link_to "Add Task", new_list_task_path(l), class: "ui buttom attached button" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
