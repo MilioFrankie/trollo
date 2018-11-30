@@ -1,15 +1,15 @@
-<h2><%= current_user.first_name %>'s TROLLO</h2>
+<h1><%= current_user.first_name %>'s TROLLO</h1>
 <hr />
 
-<div class= "ui card">
+<div class= "ui centered card">
   <div class "content">
-    <div class = "center aligned header"><h3>YOUR BOARDS<h3></div>
+    <div class = "center aligned header b_title"><h2>YOUR BOARDS</h2></div>
       <% @boards.each do |b| %>
         <li class = "center aligned description">
-            <%= link_to b.name, board_lists_path(b) %><%= button_to " Delete", b, method: :delete %> 
+            <%= link_to b.name, board_lists_path(b), class: "b_name" %><%= button_to "Delete Board", b, method: :delete, class: "d_btn" %> 
             <br />
         </li>
       <% end %>
-    </div>
+      </div>
+      <%= link_to "Create New Board", new_board_path, class: "ui green bottom attached button" %> 
 </div>
-<%= link_to "Create New Board", new_board_path, class: "ui green button" %> 

@@ -3,24 +3,25 @@
 <%= link_to "Create List", new_board_list_path(@board), class: "ui green button"%>
 <br />
 <br />
-    <% @lists.each do |l| %>
-      <div class = "ui cards">
+<div class = "ui three column grid">
+  <% @lists.each do |l| %>
+    <div class = "column">
+      <div class = "ui fluid card">
         <div class = "card">
           <div class = "content">
-            <div class = "header"><%=l.name %></div>
-            <div class = "description">
-            <ul>
-              <% l.tasks.each do |t| %>  
-              <li>
-                <%= t.name %><br /><%= button_to "Delete Task", [l, t], method: :delete %> 
-              </li>
-    
-              <% end %>
-            </ul>
-            </div>
-              <%= link_to "Add Task", new_list_task_path(l), class: "ui buttom attached button" %>
-              <%= link_to "Delete LIST", [@board, l], method: :delete, class: "ui red buttom attached button" %>
+              <h2 class = "center aligned header"><%= l.name %></h2>
+              <div class = "description">
+                <% l.tasks.each do |t| %>  
+                <li class = "t_name">
+                  <%= t.name %><br /><%= button_to "Delete Task", [l, t], method: :delete, class: "t_btn" %> 
+                </li>
+                <% end %>
+              </div>
           </div>
+          <%= link_to "Add Task", new_list_task_path(l), class: "ui buttom attached button" %>
+          <%= link_to "Delete LIST", [@board, l], method: :delete, class: "ui red buttom attached button" %>
         </div>
       </div>
-    <% end %>
+    </div> 
+  <% end %>
+</div>
