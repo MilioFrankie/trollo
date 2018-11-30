@@ -9,9 +9,17 @@
           <div class = "content">
             <div class = "header"><%=l.name %></div>
             <div class = "description">
-            <p>ADD each do for task in here</p>
+            <ul>
+              <% l.tasks.each do |t| %>  
+              <li>
+                <%= t.name %><br /><%= button_to "Delete Task", [l, t], method: :delete %> 
+              </li>
+    
+              <% end %>
+            </ul>
             </div>
               <%= link_to "Add Task", new_list_task_path(l), class: "ui buttom attached button" %>
+              <%= link_to "Delete LIST", [@board, l], method: :delete, class: "ui red buttom attached button" %>
           </div>
         </div>
       </div>

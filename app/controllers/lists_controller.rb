@@ -1,7 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_board
   before_action :set_list, only: [:show, :edit, :update, :destroy]
-  
   def index
     @lists = @board.lists
   end
@@ -25,7 +24,9 @@ class ListsController < ApplicationController
   def edit
   end
 
-  def delete
+  def destroy
+    @list.destroy
+    redirect_to board_lists_path(@board)
   end
 
   private
